@@ -20,7 +20,7 @@ def telegram_bot_sendtext(bot_message):
     return response.json()
 
 def report_change(url):
-    html_response = str(requests.get(url))
+    html_response = requests.get(url).text.encode('utf-8')
     file_name = ''.join(x for x in url if x.isalpha()) + ".txt"
 
     # Check if file exists that matches the page's content
